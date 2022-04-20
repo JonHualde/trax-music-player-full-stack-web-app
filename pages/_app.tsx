@@ -5,6 +5,10 @@ import "reset-css";
 // Layouts
 import PlayerLayout from "../components/playerLayout";
 
+// Store
+import { StoreProvider } from "easy-peasy";
+import { store } from "../lib/store";
+
 const theme = extendTheme({
   colors: {
     gray: {
@@ -36,9 +40,15 @@ const theme = extendTheme({
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
-      <PlayerLayout>
-        <Component {...pageProps} />;
-      </PlayerLayout>
+      <StoreProvider store={store}>
+        {Component.authPage ? (
+          <Component {...pageProps} />
+        ) : (
+          <PlayerLayout>
+            <Component {...pageProps} />
+          </PlayerLayout>
+        )}
+      </StoreProvider>
     </ChakraProvider>
   );
 }
