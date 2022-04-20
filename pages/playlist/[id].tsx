@@ -11,6 +11,7 @@ const getBGColor = (id) => {
 
 const Playlist = ({ playlist }) => {
   const color = getBGColor(playlist.id);
+
   return (
     <GradientLayout
       image={`https://picsum.photos/400?random=${playlist.id}`}
