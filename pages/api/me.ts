@@ -12,7 +12,6 @@ export default validateRoute(
       },
     });
 
-    console.log(playlistsCount);
     res.json({ ...user, playlistsCount });
   }
 );
